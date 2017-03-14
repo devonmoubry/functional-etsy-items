@@ -1,0 +1,10 @@
+img {
+  width: 100%
+}
+
+li {
+  display: block;
+  list-style-type: none;
+  margin: auto;
+  text-align: center;
+}
