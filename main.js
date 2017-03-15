@@ -95,13 +95,12 @@ var manyMaterials = items.filter(function (element, index, array) {
   return element.materials.length >= 8;
 });
 
-var hasMany = manyMaterials.map(function(item, index, array) {
-  return '<li>' + item.title + ' has ' + item.materials.length + ' materials:' + item.materials + '</li>';
-});
-
-hasMany.forEach(function(item, index, array) {
+var hasMany = manyMaterials.forEach(function(item, index, array) {
   var output = document.querySelector('ul#fivel');
-  output.innerHTML += item;
+  output.innerHTML += '<li>' + item.title + ' has ' + item.materials.length + ' materials:';
+  item.materials.forEach(function(current, index, array) {
+    output.innerHTML += '<li>'  +  current + '</li>';
+  });
 });
 
 /****************Answer 6****************/
@@ -111,5 +110,5 @@ var madeBySellers = items.filter(function (element, index, array) {
     return element.who_made === 'i_did';
 });
 
-  var output = document.querySelector('li#six');
-  output.innerHTML += madeBySellers.length + ' were made by their sellers';
+var output = document.querySelector('li#six');
+output.innerHTML += madeBySellers.length + ' were made by their sellers';
